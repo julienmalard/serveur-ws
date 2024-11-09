@@ -94,9 +94,9 @@ export const lancerServeur = async ({
   const suivreConnexions = (f: (r: string[]) => void): (() => void) => {
     const fFinale = () => {
       const connexions: string[] = [];
-      serveurWs.clients.forEach(c=>{
+      /*serveurWs.clients.forEach(c=>{
         connexions.push('test')
-      })
+      })*/
       f(connexions)
     }
     serveurWs.on("connection", fFinale);
