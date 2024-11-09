@@ -19,7 +19,7 @@ import { lancerServeur } from "@/serveur.js";
 import { MessageBinaire, PRÉFIX_MACHINE } from "@/const.js";
 
 const dirBase = url.fileURLToPath(new URL("..", import.meta.url));
-const fichierPackageJson = path.join(dirBase, "../package.json");
+const fichierPackageJson = path.join(dirBase, "./package.json");
 const packageJson = JSON.parse(fs.readFileSync(fichierPackageJson, "utf8"));
 
 const envoyerMessageMachine = ({ message }: { message: MessageBinaire }) => {
