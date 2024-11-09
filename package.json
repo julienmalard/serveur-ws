@@ -7,20 +7,21 @@
   "private": false,
   "description": "Un serveur Constellation pour connecter à d'autres applications locales (sur la même machine)",
   "type": "module",
-  "types": "./dist/src/index.d.ts",
-  "exports": "./dist/src/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": "./dist/index.js",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "watch": "npm-watch",
     "nettoyer": "rimraf dist",
-    "compiler": "pnpm versioner && pnpm nettoyer && pnpm tspc -p tsconfig.build.json && chmod +x ./dist/src/bin.js",
+    "compiler": "pnpm versioner && pnpm nettoyer && pnpm tspc -p tsconfig.build.json && chmod +x ./dist/bin.js",
+    "compiler:prod": "pnpm update-version && pnpm nettoyer && pnpm tspc -p tsconfig.build.json",
     "test:processus": "pnpm compiler && env TYPE_SERVEUR=proc pnpm aegir test -t node --cov -- --exit",
     "test:binaire": "pnpm compiler && env TYPE_SERVEUR=bin pnpm aegir test -t node --cov -- --exit",
     "test": "pnpm test:processus && pnpm test:binaire",
     "formatter": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint src",
-    "publier": "pnpm test && pnpm formatter && pnpm compiler && (git commit -a -m 'version' || true) && pnpm publish",
+    "publier": "pnpm test && pnpm formatter && pnpm compiler:prod && (git commit -a -m 'version' || true) && pnpm publish",
     "versioner": "pnpm genversion  --es6 --semi src/version.ts"
   },
   "dependencies": {
@@ -73,7 +74,7 @@
     "typescript-transform-paths": "^3.4.7"
   },
   "bin": {
-    "constl": "./dist/src/bin.js"
+    "constl": "./dist/bin.js"
   },
   "pnpm": {
     "overrides": {

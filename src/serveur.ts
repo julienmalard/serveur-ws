@@ -36,6 +36,7 @@ export const lancerServeur = async ({
   port: number;
   codeSecret: string;
   suivreRequêtes: (f: (x: string[]) => void) => () => void;
+  suivreConnexions: (f: (x: string[]) => void) => () => void;
   approuverRequête: (id: string) => void;
   refuserRequête: (id: string) => void;
   ipa: Constellation;
@@ -90,6 +91,24 @@ export const lancerServeur = async ({
     requêtesChangées();
   };
 
+  const suivreConnexions = (f: (r: string[]) => void): (() => void) => {
+    const fFinale = () => {
+      const connexions: string[] = [];
+      serveurWs.clients.forEach(c=>{
+        connexions.push('test')
+      })
+      f(connexions)
+    }
+    serveurWs.on("connection", fFinale);
+    serveurWs.on("close", fFinale);
+    fFinale();
+
+    return () => {
+      serveurWs.off("connection", fFinale)
+      serveurWs.off("close", fFinale)
+    };
+  };
+
   // `server` is a vanilla Node.js HTTP server, so use
   // the same ws upgrade process described here:
   // https://www.npmjs.com/package/ws#multiple-servers-sharing-a-single-https-server
@@ -125,6 +144,7 @@ export const lancerServeur = async ({
     port,
     codeSecret,
     suivreRequêtes,
+    suivreConnexions,
     approuverRequête,
     refuserRequête,
     ipa,

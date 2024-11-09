@@ -32,6 +32,7 @@ const typesServeurs: () => {
     port: number;
     codeSecret: string;
     suivreRequêtes?: (f: (x: string[]) => void) => () => void;
+    suivreConnexions?: (f: (x: string[]) => void) => () => void;
     approuverRequête?: (id: string) => void;
     refuserRequête?: (id: string) => void;
   }>;
@@ -64,6 +65,7 @@ const typesServeurs: () => {
         suivreRequêtes,
         refuserRequête,
         approuverRequête,
+        suivreConnexions,
       } = await lancerServeur({
         optsConstellation: {
           dossier,
@@ -75,6 +77,7 @@ const typesServeurs: () => {
         suivreRequêtes,
         refuserRequête,
         approuverRequête,
+        suivreConnexions,
         fermerServeur: async () => {
           await fermerServeur();
           try {
@@ -101,7 +104,7 @@ const typesServeurs: () => {
         ({ dossier, fEffacer } = await dossiers.dossierTempo());
       }
 
-      const { stdout, stdin, stderr } = execa("./dist/src/bin.js", [
+      const { stdout, stdin, stderr } = execa("./dist/bin.js", [
         "lancer",
         "-m",
         `--dossier=${dossier}`,
@@ -156,11 +159,11 @@ const typesServeurs: () => {
 if (process.env.TYPE_SERVEUR === "bin") {
   describe("Client ligne de commande", () => {
     it("Obtenir version serveur", async () => {
-      const { stdout } = await execa("./dist/src/bin.js", ["version"]);
+      const { stdout } = await execa("./dist/bin.js", ["version"]);
       expect(stdout).to.equal(version);
     });
     it("Obtenir version IPA", async () => {
-      const { stdout } = await execa("./dist/src/bin.js", ["v-constl"]);
+      const { stdout } = await execa("./dist/bin.js", ["v-constl"]);
       expect(stdout).to.equal(versionIPA);
     });
   });
@@ -225,8 +228,11 @@ describe("Fonctionalités serveurs", function () {
       let suivreRequêtes:
         | ((f: (x: string[]) => void) => () => void)
         | undefined;
-      let approuverRequête: ((id: string) => void) | undefined;
-      let refuserRequête: ((id: string) => void) | undefined;
+        let approuverRequête: ((id: string) => void) | undefined;
+        let refuserRequête: ((id: string) => void) | undefined;
+        let suivreConnexions:
+          | ((f: (x: string[]) => void) => () => void)
+          | undefined;
 
       before(async () => {
         ({
@@ -236,6 +242,7 @@ describe("Fonctionalités serveurs", function () {
           suivreRequêtes,
           refuserRequête,
           approuverRequête,
+          suivreConnexions,
         } = await fGénérerServeur({}));
       });
 
@@ -266,10 +273,12 @@ describe("Fonctionalités serveurs", function () {
             codeSecret: string;
           }>;
           const attendreRequêtes = new attente.AttendreRésultat<string[]>();
+          const attendreConnexions = new attente.AttendreRésultat<string[]>();
           const fsOublier: (() => void)[] = [];
 
           before(() => {
             suivreRequêtes?.((rqts) => attendreRequêtes.mettreÀJour(rqts));
+            suivreConnexions?.((cnxs) => attendreConnexions.mettreÀJour(cnxs));
           });
           after(() => {
             attendreRequêtes.toutAnnuler();
@@ -282,6 +291,10 @@ describe("Fonctionalités serveurs", function () {
               (x) => x.length > 0,
             );
             expect(requêtes).to.include("C'est moi");
+            
+            // Aucune connexion active pour l'instant
+            // const connexions = await attendreConnexions.attendreExiste();
+            // expect(connexions).to.be.empty()
           });
 
           it("Rejet demande de mot de passe", async () => {
@@ -313,6 +326,12 @@ describe("Fonctionalités serveurs", function () {
             const { fermerClient } = await lancerClient({ port, codeSecret });
             fsOublier.push(fermerClient);
           });
+
+          it("Connexion détectée", async () => {
+            const val = await attendreConnexions.attendreQue(c=>c.length > 0)
+            console.log({val})
+            expect(val).to.contain("S'il te plaît...")
+          })
         });
       });
 
