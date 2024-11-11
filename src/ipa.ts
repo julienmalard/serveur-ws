@@ -25,7 +25,7 @@ class Mandataire extends Mandatairifiable {
           type: "erreur",
           erreur: e.erreur,
           codeErreur: e.code,
-          id: e.id,
+          idRequête: e.idRequête,
         }),
     });
   }
@@ -50,13 +50,13 @@ const obtPrisesRéponseMessage = (
   idMessage?: string,
 ): { prise: ws.WebSocket; idMessage?: string }[] => {
   let prisesFinales: { prise: ws.WebSocket; idMessage?: string }[] = [];
-  let id: string;
+  let idRequête: string;
 
   if (idMessage) {
     const [idPrise, id_] = idMessage.split(":");
-    id = id_;
+    idRequête = id_;
     const prise = prises[idPrise.toString()];
-    if (prise) prisesFinales.push({ prise, idMessage: id });
+    if (prise) prisesFinales.push({ prise, idMessage: idRequête });
   } else {
     prisesFinales = Object.values(prises).map((prise) => ({ prise }));
   }
@@ -65,14 +65,14 @@ const obtPrisesRéponseMessage = (
 };
 
 const fMessage = (message: MessageDIpa) => {
-  const { id } = message;
-  const prisesPourMessage = obtPrisesRéponseMessage(id);
+  const { idRequête } = message;
+  const prisesPourMessage = obtPrisesRéponseMessage(idRequête);
 
   prisesPourMessage.forEach((prise) => {
     prise.prise.send(
       JSON.stringify({
         ...message,
-        id: prise.idMessage, // Mettre l'identifiant original de la requète (sans le numéro de prise)
+        idRequête: prise.idMessage, // Mettre l'identifiant original de la requète (sans le numéro de prise)
       }),
     );
   });
@@ -82,16 +82,16 @@ const fErreur = (e: ErreurMandataire) => {
   const messageErreur: MessageErreurDIpa = {
     type: "erreur",
     erreur: e.erreur,
-    id: e.id,
+    idRequête: e.idRequête,
     codeErreur: e.code,
   };
 
-  const prisesPourMessage = obtPrisesRéponseMessage(e.id);
+  const prisesPourMessage = obtPrisesRéponseMessage(e.idRequête);
   prisesPourMessage.forEach((p) =>
     p.prise.send(
       JSON.stringify({
         ...messageErreur,
-        id: p.idMessage,
+        idRequête: p.idMessage,
       }),
     ),
   );
@@ -133,7 +133,7 @@ export const attacherIpa = ({
 
     prise.on("message", (message) => {
       const messageDécodé: MessagePourIpa = JSON.parse(message.toString());
-      if (messageDécodé.id) messageDécodé.id = `${n_prise}:${messageDécodé.id}`;
+      if (messageDécodé.idRequête) messageDécodé.idRequête = `${n_prise}:${messageDécodé.idRequête}`;
       ipa.gérerMessage(messageDécodé);
     });
     prise.on("close", () => {
