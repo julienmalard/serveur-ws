@@ -133,7 +133,8 @@ export const attacherIpa = ({
 
     prise.on("message", (message) => {
       const messageDécodé: MessagePourIpa = JSON.parse(message.toString());
-      if (messageDécodé.idRequête) messageDécodé.idRequête = `${n_prise}:${messageDécodé.idRequête}`;
+      if (messageDécodé.idRequête)
+        messageDécodé.idRequête = `${n_prise}:${messageDécodé.idRequête}`;
       ipa.gérerMessage(messageDécodé);
     });
     prise.on("close", () => {
