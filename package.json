@@ -75,10 +75,5 @@
   },
   "bin": {
     "constl": "./dist/bin.js"
-  },
-  "pnpm": {
-    "overrides": {
-      "@libp2p/autonat": "1.1.4"
-    }
   }
 }
