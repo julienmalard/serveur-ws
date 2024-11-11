@@ -21,7 +21,14 @@ import { MessageBinaire, PRÉFIX_MACHINE } from "@/const.js";
 const dirBase = url.fileURLToPath(new URL("..", import.meta.url));
 const fichierPackageJson = path.join(dirBase, "./package.json");
 const fichierPackageJsonDév = path.join(dirBase, "../package.json");
-const packageJson = JSON.parse(fs.readFileSync(fs.existsSync(fichierPackageJson) ? fichierPackageJson :  fichierPackageJsonDév, "utf8"));
+const packageJson = JSON.parse(
+  fs.readFileSync(
+    fs.existsSync(fichierPackageJson)
+      ? fichierPackageJson
+      : fichierPackageJsonDév,
+    "utf8",
+  ),
+);
 
 const envoyerMessageMachine = ({ message }: { message: MessageBinaire }) => {
   console.log(PRÉFIX_MACHINE + JSON.stringify(message));
@@ -39,7 +46,9 @@ const suivreConnexions = async ({ ipa }: { ipa: Constellation }) => {
 
   const fFinale = () => {
     const nConnexionsSfip = connexions.sfip.length;
-    const nConnexionsMembres = connexions.constellation.filter((c) => c.infoMembre.idCompte !== connexions.monId && !c.vuÀ).length;
+    const nConnexionsMembres = connexions.constellation.filter(
+      (c) => c.infoMembre.idCompte !== connexions.monId && !c.vuÀ,
+    ).length;
 
     logUpdate(
       chalk.yellow(
@@ -50,7 +59,7 @@ const suivreConnexions = async ({ ipa }: { ipa: Constellation }) => {
   };
 
   const oublierMonId = await ipa.suivreIdCompte({
-    f: id => connexions.monId = id,
+    f: (id) => (connexions.monId = id),
   });
   const oublierConnexionsSFIP = await ipa.réseau.suivreConnexionsPostesSFIP({
     f: (x) => {
@@ -110,7 +119,7 @@ yargs(hideBin(process.argv))
       if (argv.machine) {
         envoyerMessageMachine({ message: { type: "LANÇAGE NŒUD" } });
       } else {
-        roue = ora(chalk.yellow(`Initialisation du nœud`));  // .start()
+        roue = ora(chalk.yellow(`Initialisation du nœud`)); // .start()
       }
 
       const optsConstellation: client.optsConstellation = {

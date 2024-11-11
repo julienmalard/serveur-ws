@@ -228,11 +228,11 @@ describe("Fonctionalités serveurs", function () {
       let suivreRequêtes:
         | ((f: (x: string[]) => void) => () => void)
         | undefined;
-        let approuverRequête: ((id: string) => void) | undefined;
-        let refuserRequête: ((id: string) => void) | undefined;
-        let suivreConnexions:
-          | ((f: (x: string[]) => void) => () => void)
-          | undefined;
+      let approuverRequête: ((id: string) => void) | undefined;
+      let refuserRequête: ((id: string) => void) | undefined;
+      let suivreConnexions:
+        | ((f: (x: string[]) => void) => () => void)
+        | undefined;
 
       before(async () => {
         ({
@@ -291,10 +291,10 @@ describe("Fonctionalités serveurs", function () {
               (x) => x.length > 0,
             );
             expect(requêtes).to.include("Patte blanche");
-            
+
             // Aucune connexion active pour l'instant
             const connexions = await attendreConnexions.attendreExiste();
-            expect(connexions).to.be.empty()
+            expect(connexions).to.be.empty();
           });
 
           it("Rejet demande de mot de passe", async () => {
@@ -328,9 +328,11 @@ describe("Fonctionalités serveurs", function () {
           });
 
           it("Connexion détectée", async () => {
-            const val = await attendreConnexions.attendreQue(c=>c.length > 0)
-            expect(val).to.contain("S'il te plaît...")
-          })
+            const val = await attendreConnexions.attendreQue(
+              (c) => c.length > 0,
+            );
+            expect(val).to.contain("S'il te plaît...");
+          });
         });
       });
 

@@ -19,12 +19,8 @@
       "description": "Regrouper les librairies @constl.",
       "groupName": "Constellation",
       "groupSlug": "constellation-node",
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchPackageNames": [
-        "@constl/**"
-      ]
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@constl/**"]
     }
   ]
 }

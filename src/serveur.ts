@@ -19,14 +19,18 @@ type MessageÉvénementRequête = {
 const authentifier = (
   requête: IncomingMessage,
   bonMotDePasse: string,
-): {authentifié: boolean, id?: string} => {
-  if (!requête.url) return {authentifié: false};
+): { authentifié: boolean; id?: string } => {
+  if (!requête.url) return { authentifié: false };
   const { code } = parse(requête.url, true).query;
   if (typeof code !== "string") return { authentifié: false };
   const composantesCode = decodeURI(code);
-  const motDePasse = composantesCode.includes(":") ? composantesCode.split(":")[0] : composantesCode;
+  const motDePasse = composantesCode.includes(":")
+    ? composantesCode.split(":")[0]
+    : composantesCode;
   const authentifié = motDePasse === bonMotDePasse;
-  const id = composantesCode.includes(":") ? composantesCode.split(":")[1] : undefined;
+  const id = composantesCode.includes(":")
+    ? composantesCode.split(":")[1]
+    : undefined;
   return { authentifié, id };
 };
 
@@ -99,18 +103,18 @@ export const lancerServeur = async ({
   const suivreConnexions = (f: (r: string[]) => void): (() => void) => {
     const fFinale = () => {
       const connexions: string[] = [];
-      serveurWs.clients.forEach(c=>{
-        connexions.push(objIdMap.get(c))
-      })
-      f(connexions)
-    }
+      serveurWs.clients.forEach((c) => {
+        connexions.push(objIdMap.get(c));
+      });
+      f(connexions);
+    };
     serveurWs.on("connection", fFinale);
     serveurWs.on("close", fFinale);
     fFinale();
 
     return () => {
-      serveurWs.off("connection", fFinale)
-      serveurWs.off("close", fFinale)
+      serveurWs.off("connection", fFinale);
+      serveurWs.off("close", fFinale);
     };
   };
 
@@ -119,10 +123,10 @@ export const lancerServeur = async ({
   // https://www.npmjs.com/package/ws#multiple-servers-sharing-a-single-https-server
   const serveur = app.listen(port);
 
-  const objIdMap =new WeakMap();
+  const objIdMap = new WeakMap();
 
   serveur.on("upgrade", (request, socket, head) => {
-    const {authentifié, id} = authentifier(request, codeSecret);
+    const { authentifié, id } = authentifier(request, codeSecret);
 
     if (authentifié) {
       serveurWs.handleUpgrade(request, socket, head, (socket) => {
