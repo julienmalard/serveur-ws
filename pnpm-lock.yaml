@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@achingbrain/nat-port-mapper':
-        specifier: 1.0.13
-        version: 1.0.13
+        specifier: 1.0.18
+        version: 1.0.18
       '@constl/ipa':
         specifier: ^1.3.5
         version: 1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.25.2)(@babel/preset-env@7.24.8(@babel/core@7.25.2))(bufferutil@4.0.8)(react@18.2.0))
@@ -147,8 +147,8 @@ importers:
 
 packages:
 
-  '@achingbrain/nat-port-mapper@1.0.13':
-    resolution: {integrity: sha512-B5GL6ILDek72OjoEyFGEuuNYaEOYxO06Ulhcaf/5iQ4EO8uaZWS+OkolYST7L+ecJrkjfaSNmSAsWRRuh+1Z5A==}
+  '@achingbrain/nat-port-mapper@1.0.18':
+    resolution: {integrity: sha512-B3sD+1KmD6qtmnCSdTtoMIwsw5Lj8XNDWnPakXnChm92eaFO7JRfS76oCts6iMFttJzOHq7FT0sNY7sDcbvosA==}
 
   '@achingbrain/ssdp@4.0.6':
     resolution: {integrity: sha512-Y4JE2L9150i50V6lg/Y8+ilhxRpUZKKv+PKo68Aj7MjPfaUAar6ZHilF9h4/Zb3q0fqGMXNc9o11cQLNI8J8bA==}
@@ -1715,12 +1715,6 @@ packages:
     resolution: {integrity: sha512-jXFQ3blhFMEyQbFw/U8Glo3F/fUO5LEaX5HIdeqNpCliK+XnwTfpkcaG+WsJrcApWK4FFyUHc+GGqiWR0hAFFg==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
 
-  '@libp2p/interface@1.6.1':
-    resolution: {integrity: sha512-bpkIYTvZhGGc/ajITKvgFpaP8UtPWoSj+xHVrj6zyAN8U/cAqN0IQQt4a7daJr5VZa8B86i4d1iccdG42/mz+g==}
-
-  '@libp2p/interface@1.7.0':
-    resolution: {integrity: sha512-/zFyaIaIGW0aihhsH7/93vQdpWInUzFocxF11RO/029Y6h0SVjs24HHbils+DqaFDTqN+L7oNlBx2rM2MnmTjA==}
-
   '@libp2p/interface@2.2.0':
     resolution: {integrity: sha512-Pn3P5ixDggBjDyuULT0GvwdgD3JA426OqZ0e521mI7ysS+/M9Z9fp4Qcy8JrkJ45bLmIi9cgrNrefuU/Zu+bAQ==}
 
@@ -1737,9 +1731,6 @@ packages:
   '@libp2p/logger@2.1.1':
     resolution: {integrity: sha512-2UbzDPctg3cPupF6jrv6abQnAUTrbLybNOj0rmmrdGm1cN2HJ1o/hBu0sXuq4KF9P1h/eVRn1HIRbVIEKnEJrA==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
-
-  '@libp2p/logger@4.0.17':
-    resolution: {integrity: sha512-NPGN27uOXFGuKkxnX39InMvxS0lMenq6/aFqQHN1N0f0S3LaG9RuTcz/VE3qyO1Ik1aAockR6qqCwbfFxJuO0g==}
 
   '@libp2p/logger@5.1.3':
     resolution: {integrity: sha512-NUVWEWGbXlBDgDE5ntdm51+ZICmaKYI8mor6KrlPeB1WXDyIFxRWIBw6uzt+HgprQJWzLTojeUEGv6OPsj95Dg==}
@@ -1854,9 +1845,6 @@ packages:
 
   '@multiformats/multiaddr-to-uri@10.1.2':
     resolution: {integrity: sha512-6sicfYRjJlHJn4bwsQancs8kXncWU4dDN/+V9sMVTYp9hi8ovWgVkK75AbAv4SfhztmmI+oufVUncQ1n+SukKQ==}
-
-  '@multiformats/multiaddr@12.3.0':
-    resolution: {integrity: sha512-JQ8Gc/jgucqqvEaDTFN/AvxlYDHEE7lgEWLMYW7hKZkWggER+GvG/tVxUgUxIP8M0vFpvEHKKHE0lKzyMsgi8Q==}
 
   '@multiformats/multiaddr@12.3.1':
     resolution: {integrity: sha512-yoGODQY4nIj41ENJClucS8FtBoe8w682bzbKldEQr9lSlfdHqAsRC+vpJAOBpiMwPps1tHua4kxrDmvprdhoDQ==}
@@ -2949,6 +2937,7 @@ packages:
 
   boolean@3.2.0:
     resolution: {integrity: sha512-d0II/GO9uf9lfUHH2BQsjxzRJZBdsjgsBiW4BvhWk/3qoKwQFjIDVN19PfX8F2D/r9PCMTtLWjYVCFrpeYUzsw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   bottleneck@2.19.5:
     resolution: {integrity: sha512-VHiNCbI1lKdl44tGrhNfU3lup0Tj/ZBMJB5/2ZbNXRCPuRCO7ed2mgcK4r17y+KB2EfuYuRaVlwNbAeaWGSpbw==}
@@ -4073,6 +4062,7 @@ packages:
   eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   eslint@9.9.0:
@@ -4842,14 +4832,8 @@ packages:
   interface-blockstore@5.3.1:
     resolution: {integrity: sha512-nhgrQnz6yUQEqxTFLhlOBurQOy5lWlwCpgFmZ3GTObTVTQS9RZjK/JTozY6ty9uz2lZs7VFJSqwjWAltorJ4Vw==}
 
-  interface-datastore@8.2.11:
-    resolution: {integrity: sha512-9E0iXehfp/j0UbZ2mvlYB4K9pP7uQBCppfuy8WHs1EHF6wLQrM9+zwyX+8Qt6HnH4GKZRyXX/CNXm6oD4+QYgA==}
-
   interface-datastore@8.3.1:
     resolution: {integrity: sha512-3r0ETmHIi6HmvM5sc09QQiCD3gUfwtEM/AAChOyAd/UAKT69uk8LXfTSUBufbUIO/dU65Vj8nb9O6QjwW8vDSQ==}
-
-  interface-store@5.1.8:
-    resolution: {integrity: sha512-7na81Uxkl0vqk0CBPO5PvyTkdaJBaezwUJGsMOz7riPOq0rJt+7W31iaopaMICWea/iykUsvNlPx/Tc+MxC3/w==}
 
   interface-store@6.0.2:
     resolution: {integrity: sha512-KSFCXtBlNoG0hzwNa0RmhHtrdhzexp+S+UY2s0rWTBJyfdEIgn6i6Zl9otVqrcFYbYrneBT7hbmHQ8gE0C3umA==}
@@ -5297,10 +5281,6 @@ packages:
 
   it-sort@3.0.6:
     resolution: {integrity: sha512-aNrlZAXB8vWBd42tCpaXGL6CJVJNDW3OLczmdt6g0k/s9Z6evkTdgU2LjwW5SNNeX41sF+C8MjV+OcVf93PsPw==}
-
-  it-stream-types@2.0.1:
-    resolution: {integrity: sha512-6DmOs5r7ERDbvS4q8yLKENcj6Yecr7QQTqWApbZdfAUTEC947d+PEha7PCqhm//9oxaLYL7TWRekwhoXl2s6fg==}
-    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
 
   it-stream-types@2.0.2:
     resolution: {integrity: sha512-Rz/DEZ6Byn/r9+/SBCuJhpPATDF9D+dz5pbgSUyBsCDtza6wtNATrz/jz1gDyNanC3XdLboriHnOC925bZRBww==}
@@ -6129,9 +6109,6 @@ packages:
 
   multiformats@13.1.3:
     resolution: {integrity: sha512-CZPi9lFZCM/+7oRolWYsvalsyWQGFo+GpdaTmjxXXomC+nP/W1Rnxb9sUgjvmNmRZ5bOPqRAl4nuK+Ydw/4tGw==}
-
-  multiformats@13.2.2:
-    resolution: {integrity: sha512-RWI+nyf0q64vyOxL8LbKtjJMki0sogRL/8axvklNtiTM0iFCVtHwME9w6+0P1/v4dQvsIg8A45oT3ka1t/M/+A==}
 
   multiformats@13.3.1:
     resolution: {integrity: sha512-QxowxTNwJ3r5RMctoGA5p13w5RbRT2QDkoM+yFlqfLiioBp78nhDjnRLvmSBI9+KAqN4VdgOVWM9c0CHd86m3g==}
@@ -8481,18 +8458,16 @@ packages:
 
 snapshots:
 
-  '@achingbrain/nat-port-mapper@1.0.13':
+  '@achingbrain/nat-port-mapper@1.0.18':
     dependencies:
       '@achingbrain/ssdp': 4.0.6
-      '@libp2p/logger': 4.0.17
+      '@libp2p/logger': 5.1.3
       default-gateway: 7.2.2
       err-code: 3.0.1
       it-first: 3.0.6
       p-defer: 4.0.1
-      p-timeout: 6.1.2
+      p-timeout: 6.1.3
       xml2js: 0.6.2
-    transitivePeerDependencies:
-      - supports-color
 
   '@achingbrain/ssdp@4.0.6':
     dependencies:
@@ -10592,24 +10567,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@libp2p/interface@1.6.1':
-    dependencies:
-      '@multiformats/multiaddr': 12.3.0
-      it-pushable: 3.2.3
-      it-stream-types: 2.0.1
-      multiformats: 13.2.2
-      progress-events: 1.0.1
-      uint8arraylist: 2.4.8
-
-  '@libp2p/interface@1.7.0':
-    dependencies:
-      '@multiformats/multiaddr': 12.3.0
-      it-pushable: 3.2.3
-      it-stream-types: 2.0.1
-      multiformats: 13.1.3
-      progress-events: 1.0.1
-      uint8arraylist: 2.4.8
-
   '@libp2p/interface@2.2.0':
     dependencies:
       '@multiformats/multiaddr': 12.3.1
@@ -10672,16 +10629,6 @@ snapshots:
       debug: 4.3.7
       interface-datastore: 8.3.1
       multiformats: 11.0.2
-    transitivePeerDependencies:
-      - supports-color
-
-  '@libp2p/logger@4.0.17':
-    dependencies:
-      '@libp2p/interface': 1.6.1
-      '@multiformats/multiaddr': 12.3.0
-      debug: 4.3.6(supports-color@8.1.1)
-      interface-datastore: 8.2.11
-      multiformats: 13.2.2
     transitivePeerDependencies:
       - supports-color
 
@@ -10842,14 +10789,12 @@ snapshots:
 
   '@libp2p/upnp-nat@2.0.10':
     dependencies:
-      '@achingbrain/nat-port-mapper': 1.0.13
+      '@achingbrain/nat-port-mapper': 1.0.18
       '@libp2p/interface': 2.2.0
       '@libp2p/interface-internal': 2.0.10
       '@libp2p/utils': 6.1.3
       '@multiformats/multiaddr': 12.3.1
       wherearewe: 2.0.1
-    transitivePeerDependencies:
-      - supports-color
 
   '@libp2p/utils@6.1.3':
     dependencies:
@@ -11027,16 +10972,6 @@ snapshots:
   '@multiformats/multiaddr-to-uri@10.1.2':
     dependencies:
       '@multiformats/multiaddr': 12.3.1
-
-  '@multiformats/multiaddr@12.3.0':
-    dependencies:
-      '@chainsafe/is-ip': 2.0.2
-      '@chainsafe/netmask': 2.0.0
-      '@libp2p/interface': 1.7.0
-      '@multiformats/dns': 1.0.6
-      multiformats: 13.1.3
-      uint8-varint: 2.0.4
-      uint8arrays: 5.1.0
 
   '@multiformats/multiaddr@12.3.1':
     dependencies:
@@ -15123,17 +15058,10 @@ snapshots:
       interface-store: 6.0.2
       multiformats: 13.3.1
 
-  interface-datastore@8.2.11:
-    dependencies:
-      interface-store: 5.1.8
-      uint8arrays: 5.1.0
-
   interface-datastore@8.3.1:
     dependencies:
       interface-store: 6.0.2
       uint8arrays: 5.1.0
-
-  interface-store@5.1.8: {}
 
   interface-store@6.0.2: {}
 
@@ -15584,8 +15512,6 @@ snapshots:
   it-sort@3.0.6:
     dependencies:
       it-all: 3.0.6
-
-  it-stream-types@2.0.1: {}
 
   it-stream-types@2.0.2: {}
 
@@ -16853,8 +16779,6 @@ snapshots:
   multiformats@12.1.3: {}
 
   multiformats@13.1.3: {}
-
-  multiformats@13.2.2: {}
 
   multiformats@13.3.1: {}
 
