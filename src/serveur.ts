@@ -19,10 +19,15 @@ type MessageÉvénementRequête = {
 const authentifier = (
   requête: IncomingMessage,
   bonMotDePasse: string,
-): boolean => {
-  if (!requête.url) return false;
+): {authentifié: boolean, id?: string} => {
+  if (!requête.url) return {authentifié: false};
   const { code } = parse(requête.url, true).query;
-  return typeof code === "string" && decodeURI(code) === bonMotDePasse;
+  if (typeof code !== "string") return { authentifié: false };
+  const composantesCode = decodeURI(code);
+  const motDePasse = composantesCode.includes(":") ? composantesCode.split(":")[0] : composantesCode;
+  const authentifié = motDePasse === bonMotDePasse;
+  const id = composantesCode.includes(":") ? composantesCode.split(":")[1] : undefined;
+  return { authentifié, id };
 };
 
 export const lancerServeur = async ({
@@ -79,7 +84,7 @@ export const lancerServeur = async ({
 
   const approuverRequête = (id: string) => {
     const requête = requêtes.find((r) => r.id === id);
-    requête?.rép.status(200).send(codeSecret);
+    requête?.rép.status(200).send(codeSecret + ":" + id);
     requêtes = requêtes.filter((r) => r.id !== id);
     requêtesChangées();
   };
@@ -94,9 +99,9 @@ export const lancerServeur = async ({
   const suivreConnexions = (f: (r: string[]) => void): (() => void) => {
     const fFinale = () => {
       const connexions: string[] = [];
-      /*serveurWs.clients.forEach(c=>{
-        connexions.push('test')
-      })*/
+      serveurWs.clients.forEach(c=>{
+        connexions.push(objIdMap.get(c))
+      })
       f(connexions)
     }
     serveurWs.on("connection", fFinale);
@@ -114,11 +119,14 @@ export const lancerServeur = async ({
   // https://www.npmjs.com/package/ws#multiple-servers-sharing-a-single-https-server
   const serveur = app.listen(port);
 
+  const objIdMap =new WeakMap();
+
   serveur.on("upgrade", (request, socket, head) => {
-    const authentifié = authentifier(request, codeSecret);
+    const {authentifié, id} = authentifier(request, codeSecret);
 
     if (authentifié) {
       serveurWs.handleUpgrade(request, socket, head, (socket) => {
+        if (id) objIdMap.set(socket, id);
         serveurWs.emit("connection", socket, request);
       });
     } else {
