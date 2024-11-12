@@ -42,7 +42,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@constl/mandataire": "3.0.2",
+    "@constl/mandataire": "3.0.3",
     "@constl/utils-tests": "1.6.2",
     "@eslint/js": "^9.7.0",
     "@types/express": "^4.17.21",
