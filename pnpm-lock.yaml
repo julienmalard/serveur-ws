@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@constl/ipa':
         specifier: ^1.3.5
-        version: 1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
+        version: 1.4.1(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
       axios:
         specifier: ^1.7.2
         version: 1.7.7
@@ -58,8 +58,8 @@ importers:
         specifier: 3.0.3
         version: 3.0.3
       '@constl/utils-tests':
-        specifier: 1.6.2
-        version: 1.6.2(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
+        specifier: 1.6.3
+        version: 1.6.3(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
       '@eslint/js':
         specifier: ^9.7.0
         version: 9.14.0
@@ -147,8 +147,8 @@ packages:
   '@achingbrain/nat-port-mapper@1.0.18':
     resolution: {integrity: sha512-B3sD+1KmD6qtmnCSdTtoMIwsw5Lj8XNDWnPakXnChm92eaFO7JRfS76oCts6iMFttJzOHq7FT0sNY7sDcbvosA==}
 
-  '@achingbrain/ssdp@4.0.6':
-    resolution: {integrity: sha512-Y4JE2L9150i50V6lg/Y8+ilhxRpUZKKv+PKo68Aj7MjPfaUAar6ZHilF9h4/Zb3q0fqGMXNc9o11cQLNI8J8bA==}
+  '@achingbrain/ssdp@4.1.0':
+    resolution: {integrity: sha512-CtitFm84oesjSplBKn5/5Adm/JFCtFqS1sjLl6FryYm2hogxc1QnjYRFcLfy97c/arzg7Gw+evZl06ChHs+teA==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -905,8 +905,8 @@ packages:
   '@constl/bohr-db@1.2.0':
     resolution: {integrity: sha512-v0v51icUjihHgMTDyZvEnGpaATvXKn3UbVurG8rAc9VjIg4nafsJMiHXuC4KxZvIy/03A1NiLI7H4/CMpdYr+g==}
 
-  '@constl/ipa@1.3.5':
-    resolution: {integrity: sha512-wVBYrcoDPM+L37+B4zrYHCacHE+4MW/a8ED8y/zkdyGgOzPUIbzUCci3dt0GxtrcrcZqPMz9DuRKHkWtxxLIWA==}
+  '@constl/ipa@1.4.1':
+    resolution: {integrity: sha512-ZeRv7sK6EVb0g/mdUmdXKJP30D5DsUgYW/xvh/ldn1M20UQWBCrLl0JDdKZBIXl3KtLYrgLHZibHZqr2Lv+vrw==}
     engines: {node: '>=20'}
 
   '@constl/mandataire@3.0.3':
@@ -916,8 +916,8 @@ packages:
     resolution: {integrity: sha512-gWv7BhTXYactNBXPDlUol4EudIr1tsZC1/Gvqcp0Rb2SDqGLHiSURqyiXqj6xVtzPMlcyPHDkBmqsEf8cecWJg==}
     engines: {node: '>=20'}
 
-  '@constl/utils-tests@1.6.2':
-    resolution: {integrity: sha512-SSDjUdt5jCcJl6M+w1UHkut6/QYZJJoUWl9H8eTgacx8OXtp3QaUGwycQEr09i0rOypwUbuKc3UY3BcyDTtDDw==}
+  '@constl/utils-tests@1.6.3':
+    resolution: {integrity: sha512-IUh7xpOaGQswl89j3pLCmTYtOXOgCCg/Mp/Zx1MjInCJzKzsE9jrdpP1th9+giO3bqUF1lRIRtRa8mY+T6N3kw==}
     engines: {node: '>=20'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -1274,8 +1274,8 @@ packages:
   '@helia/block-brokers@4.0.1':
     resolution: {integrity: sha512-djYp4bmC15SBP1/ra9SrOAATr432hDcA2hnHWewkz1l84hCi+gSol7AcdAfW233pZ2ivZcI2Jc1Nyf7Vg6uFeg==}
 
-  '@helia/delegated-routing-v1-http-api-client@4.1.2':
-    resolution: {integrity: sha512-EPrsgPLiDsZY0HjVL8ifj8j8Os/PD7Fo4GnJZZ3zQPlqclzIiKELDEsaKg0G1rIuVi2n37tLuX85Wiia1YTMoQ==}
+  '@helia/delegated-routing-v1-http-api-client@4.2.0':
+    resolution: {integrity: sha512-2lIL9SyR72yINUIRac5SkY7obMbylEringExSV1t13oM7MjuU+NziCkJr/uU/d3EWwR53fafNsZf8wizQqe8bA==}
 
   '@helia/interface@5.0.0':
     resolution: {integrity: sha512-B95cP8RBl7cqSu1VELeRWPUsTNxu2bJ2Y/ihsdYfUCcxHKUUQdDDLTHQzhZe9iC9TYADkfkjIM7gqgmhqYtY6A==}
@@ -1519,20 +1519,20 @@ packages:
   '@libp2p/webtransport@5.0.16':
     resolution: {integrity: sha512-0CRugE+RlqhDasn/bFq45PjiyBLNnBeTSAfwVI9sYBV0irPh1Fg8nNunxNIXkIfCptnB9UlxKS1Ho2vwwEscdg==}
 
-  '@localfirst/auth@5.6.0':
-    resolution: {integrity: sha512-4nNEZ/xCYLtr9SA8GHz4Xdt+LPk1ZZsulNK2vJoO/Gy6IWIPeWuk9zKdpa1m3EhlbVw5L9xhj7ncUXAZEbmWRw==}
+  '@localfirst/auth@6.0.0':
+    resolution: {integrity: sha512-qEs0bhVKV9c1VnzWErRYk6j3DcM3CqAuNAj4DR3dZzBc6tGEYkPvzB6CpoOAxlz/i7U77SGFkvT9BWfk22zreQ==}
     engines: {node: '>=18'}
 
-  '@localfirst/crdx@5.6.0':
-    resolution: {integrity: sha512-o2UPeS9lpSgZfwTCo7VRzbghVzyXxA/qf4sG6sMuVBSuG+QhsJUjVT7r/WVWuCyw9gjTC3pOHfDL37wKXbuqug==}
+  '@localfirst/crdx@6.0.0':
+    resolution: {integrity: sha512-uuQ6G1WlubO6fMTwMai0Iysf2Qye8ojB4b6DEbxZESeSErdrjkBFQd7YRj9WihLFagTF6jvg/58OSLjE3I7KdQ==}
     engines: {node: '>=18'}
 
-  '@localfirst/crypto@5.6.0':
-    resolution: {integrity: sha512-dH7GXwCdxet9T+O5gLOHZIn44PzGYRC9feVyLK/ue9u4grMsiYQOpaeTbj04wUD0YZAqqdFOnd+Bxc45M5DYag==}
+  '@localfirst/crypto@6.0.0':
+    resolution: {integrity: sha512-hlZfry2BilI2F2KTp0m700gub9Y39Zh7Ba4guxA5BAIiIYaDIfACkEl912xSajN07CXc2SKhmTKNmfZvHlM8vg==}
     engines: {node: '>=18'}
 
-  '@localfirst/shared@5.6.0':
-    resolution: {integrity: sha512-wf13QnH8ePYccpewQ4oWv/lY2E1eVAA8XDALf8+jyb7+YGfmKFDKRT/QBAvu5T0wfeg9JbYQT79UMOWRSkvX5A==}
+  '@localfirst/shared@6.0.0':
+    resolution: {integrity: sha512-qYl4SNbXBN4NIrWnskeTwGMkWI90vq+uhIO7AfUY4yoYtLoG+nyo352npX8xB8/aeEGVyR8rXXJu6bCsmnnxUw==}
 
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
     resolution: {integrity: sha512-QZHtlVgbAdy2zAqNA9Gu1UpIuI8Xvsd1v8ic6B2pZmeFnFcMWiPLfWXh7TVw4eGEZ/C9TH281KwhVoeQUKbyjw==}
@@ -1572,6 +1572,9 @@ packages:
 
   '@multiformats/multiaddr-matcher@1.5.1':
     resolution: {integrity: sha512-ra/2CA7G3/ZDZHvRSidsxhwwbdm2aavgYhc/8yi08CvRtIdeLrtlOyRReG3hww4W0G3M6/vfxcSBMzVv+ei68A==}
+
+  '@multiformats/multiaddr-matcher@1.6.0':
+    resolution: {integrity: sha512-E77lLvQR+50kTAfvjV3g4wr9qCu77Z+6yT0s1hgfh8B4sAXZ8u/YdQJGhjgstgW1kmGy7BXPppROKYijqQsesQ==}
 
   '@multiformats/multiaddr-to-uri@10.1.2':
     resolution: {integrity: sha512-6sicfYRjJlHJn4bwsQancs8kXncWU4dDN/+V9sMVTYp9hi8ovWgVkK75AbAv4SfhztmmI+oufVUncQ1n+SukKQ==}
@@ -2311,6 +2314,9 @@ packages:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
     engines: {node: '>=6.5'}
 
+  abort-error@1.0.0:
+    resolution: {integrity: sha512-PMKqKW8CHeXFYW9GdeavZbOt2qE3/UTv5FKk8PGK583pRmvdGq/d8M9UpLBzAL95Ss3Fe3LvGjLhWeWo9d0QAg==}
+
   abortable-iterator@5.1.0:
     resolution: {integrity: sha512-a3nRG0GOGw3IPFA2hdhrZU+QuD3mA6i+5f4YM/Obe+D5lYccxScI32rAIHAW5ttFV7+beiof09gHav4qUEZDwg==}
 
@@ -2641,6 +2647,12 @@ packages:
 
   blockstore-core@5.0.2:
     resolution: {integrity: sha512-y7/BHdYLO3YCpJMg6Ue7b4Oz4FT1HWSZoHHdlsaJTsvoE8XieXb6kUCB9UkkUBDw2x4neRDwlgYBpyK77+Ro2Q==}
+
+  blockstore-fs@2.0.2:
+    resolution: {integrity: sha512-g4l4cJZqcLGPD+iOSb9DYWClAiSSGKsN7V13PTZYqQFHeg96phG15jNi9ql3urrlVC/OTzPB95FXK+GP0TX8Tw==}
+
+  blockstore-idb@2.0.1:
+    resolution: {integrity: sha512-dDoiEILLn0BaL5YMHTJW25XeEtSA8HV7yiUb/UMVFqdBHvvdSCuQnSbi0S5CMG/cc78ZkNaWG4Te4SfOL66UvQ==}
 
   blockstore-level@2.0.1:
     resolution: {integrity: sha512-qnnJFVfXioaCPFcc7lQZAPKAHytIqk2yIZJg9Mt58WhaQumvw3j8WZa4QYYbauUxA0FPysWU0cTXa9Njo4JdHg==}
@@ -3198,6 +3210,12 @@ packages:
 
   datastore-core@10.0.2:
     resolution: {integrity: sha512-B3WXxI54VxJkpXxnYibiF17si3bLXE1XOjrJB7wM5co9fx2KOEkiePDGiCCEtnapFHTnmAnYCPdA7WZTIpdn/A==}
+
+  datastore-fs@10.0.2:
+    resolution: {integrity: sha512-Jk4mCsahcqDry5JhiH+S6V3GYbET4J9B13zNWlxmCHWoCVnGN+13RneT8jLBOgwOj3/TMLAzE/YhE5OuQqNfgA==}
+
+  datastore-idb@3.0.1:
+    resolution: {integrity: sha512-JY+mqFXadONjFDdcJCokAg0Tn5zOxpl3Rk3QB/vWyRRu+lQW5vUmXf1BsNStqtJAB/p3FlwmlQZz900xy1AhgA==}
 
   date-fns@1.30.1:
     resolution: {integrity: sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==}
@@ -4443,6 +4461,9 @@ packages:
 
   idb-wrapper@1.7.2:
     resolution: {integrity: sha512-zfNREywMuf0NzDo9mVsL0yegjsirJxHpKHvWcyRozIqQy89g0a3U+oBPOCN4cc0oCiOuYgZHimzaW/R46G1Mpg==}
+
+  idb@8.0.0:
+    resolution: {integrity: sha512-l//qvlAKGmQO31Qn7xdzagVPPaHTxXx199MhrAFuVBTPqydcPYBWjkrbv4Y0ktB+GmWOiwHl237UUOrLmQxLvw==}
 
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -7182,6 +7203,10 @@ packages:
     resolution: {integrity: sha512-UhDfHmA92YAlNnCfhmq0VeNL5bDbiZGg7sZ2IvPsXubGkiNa9EC+tUTsjBRsYUAz87btI6/1wf4XoVvQ3uRnmQ==}
     engines: {node: '>=18'}
 
+  steno@4.0.2:
+    resolution: {integrity: sha512-yhPIQXjrlt1xv7dyPQg2P17URmXbuM5pdGkpiMB3RenprfiBlvK415Lctfe0eshk90oA7/tNq7WEiMK8RSP39A==}
+    engines: {node: '>=18'}
+
   stop-iteration-iterator@1.0.0:
     resolution: {integrity: sha512-iCGQj+0l0HOdZ2AEeBADlsRC+vsnDsZsbdSiH1yNSjcfKM7fdpCMfqAL/dwF5BLiw/XhRft/Wax6zQbhq2BcjQ==}
     engines: {node: '>= 0.4'}
@@ -7514,9 +7539,6 @@ packages:
 
   tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-
-  tslib@2.6.3:
-    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -7969,8 +7991,8 @@ packages:
     resolution: {integrity: sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==}
     engines: {node: '>=4.0'}
 
-  xstate@5.18.2:
-    resolution: {integrity: sha512-hab5VOe29D0agy8/7dH1lGw+7kilRQyXwpaChoMu4fe6rDP+nsHYhDYKfS2O4iXE7myA98TW6qMEudj/8NXEkA==}
+  xstate@5.19.0:
+    resolution: {integrity: sha512-Juh1MjeRaVWr1IRxXYvQMMRFMrei6vq6+AfP6Zk9D9YV0ZuvubN0aM6s2ITwUrq+uWtP1NTO8kOZmsM/IqeOiQ==}
 
   xtend@2.0.6:
     resolution: {integrity: sha512-fOZg4ECOlrMl+A6Msr7EIFcON1L26mb4NY5rurSkOex/TWhazOrg6eXD/B0XkuiYcYhQDWLXzQxLMVJ7LXwokg==}
@@ -8068,7 +8090,7 @@ snapshots:
 
   '@achingbrain/nat-port-mapper@1.0.18':
     dependencies:
-      '@achingbrain/ssdp': 4.0.6
+      '@achingbrain/ssdp': 4.1.0
       '@libp2p/logger': 5.1.3
       default-gateway: 7.2.2
       err-code: 3.0.1
@@ -8077,8 +8099,9 @@ snapshots:
       p-timeout: 6.1.3
       xml2js: 0.6.2
 
-  '@achingbrain/ssdp@4.0.6':
+  '@achingbrain/ssdp@4.1.0':
     dependencies:
+      abort-error: 1.0.0
       event-iterator: 2.0.0
       freeport-promise: 2.0.0
       merge-options: 3.0.4
@@ -9075,7 +9098,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@constl/ipa@1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))':
+  '@constl/ipa@1.4.1(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))':
     dependencies:
       '@chainsafe/libp2p-gossipsub': 14.1.0
       '@chainsafe/libp2p-noise': 16.0.0
@@ -9087,7 +9110,7 @@ snapshots:
       '@helia/block-brokers': 4.0.1
       '@helia/unixfs': 4.0.0
       '@ipld/dag-cbor': 9.2.2
-      '@lassi-js/kili': 0.3.16(@constl/ipa@1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0)))
+      '@lassi-js/kili': 0.3.16(@constl/ipa@1.4.1(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0)))
       '@libp2p/autonat': 2.0.10
       '@libp2p/bootstrap': 11.0.10
       '@libp2p/circuit-relay-v2': 3.1.0
@@ -9101,9 +9124,9 @@ snapshots:
       '@libp2p/webrtc': 5.0.16(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
       '@libp2p/websockets': 9.0.11(bufferutil@4.0.8)
       '@libp2p/webtransport': 5.0.16
-      '@localfirst/auth': 5.6.0
-      '@localfirst/crypto': 5.6.0
-      '@multiformats/multiaddr-matcher': 1.5.1
+      '@localfirst/auth': 6.0.0
+      '@localfirst/crypto': 6.0.0
+      '@multiformats/multiaddr-matcher': 1.6.0
       '@orbitdb/core': 2.4.3
       '@orbitdb/feed-db': 1.1.0(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
       '@orbitdb/ordered-keyvalue-db': 1.1.0(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
@@ -9111,13 +9134,16 @@ snapshots:
       ajv: 8.17.1
       approx-string-match: 2.0.0
       axios: 1.7.7
-      blockstore-level: 2.0.1
+      blockstore-fs: 2.0.2
+      blockstore-idb: 2.0.1
       browser-fs-access: 0.35.0
       chokidar: 4.0.1
       crypto-js: 4.2.0
+      datastore-fs: 10.0.2
+      datastore-idb: 3.0.1
       deep-equal: 2.2.3
       deepcopy: 2.1.0
-      ennikkai: 2.3.2(@constl/ipa@1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0)))
+      ennikkai: 2.3.2(@constl/ipa@1.4.1(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0)))
       env-paths: 3.0.0
       events: 3.3.0
       file-saver: 2.0.5
@@ -9166,7 +9192,7 @@ snapshots:
       uint8arrays: 5.1.0
       wherearewe: 2.0.1
 
-  '@constl/utils-tests@1.6.2(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))':
+  '@constl/utils-tests@1.6.3(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))':
     dependencies:
       '@helia/block-brokers': 4.0.1
       '@libp2p/peer-id': 5.0.7
@@ -9465,14 +9491,14 @@ snapshots:
       '@libp2p/interface': 2.2.0
       '@libp2p/utils': 6.1.3
       '@multiformats/multiaddr': 12.3.1
-      '@multiformats/multiaddr-matcher': 1.5.1
+      '@multiformats/multiaddr-matcher': 1.6.0
       '@multiformats/multiaddr-to-uri': 10.1.2
       interface-blockstore: 5.3.1
       interface-store: 6.0.2
       multiformats: 13.3.1
       progress-events: 1.0.1
 
-  '@helia/delegated-routing-v1-http-api-client@4.1.2':
+  '@helia/delegated-routing-v1-http-api-client@4.2.0':
     dependencies:
       '@libp2p/interface': 2.2.0
       '@libp2p/logger': 5.1.3
@@ -9501,7 +9527,7 @@ snapshots:
 
   '@helia/routers@2.1.0':
     dependencies:
-      '@helia/delegated-routing-v1-http-api-client': 4.1.2
+      '@helia/delegated-routing-v1-http-api-client': 4.2.0
       '@helia/interface': 5.0.0
       '@libp2p/interface': 2.2.0
       '@libp2p/peer-id': 5.0.7
@@ -9695,9 +9721,9 @@ snapshots:
     dependencies:
       buffer: 6.0.3
 
-  '@lassi-js/kili@0.3.16(@constl/ipa@1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0)))':
+  '@lassi-js/kili@0.3.16(@constl/ipa@1.4.1(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0)))':
     dependencies:
-      '@constl/ipa': 1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
+      '@constl/ipa': 1.4.1(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
       '@constl/utils-ipa': 1.0.3
       '@orbitdb/core': 2.4.3
       deepcopy: 2.1.0
@@ -9738,7 +9764,7 @@ snapshots:
       '@libp2p/peer-record': 8.0.10
       '@libp2p/utils': 6.1.3
       '@multiformats/multiaddr': 12.3.1
-      '@multiformats/multiaddr-matcher': 1.5.1
+      '@multiformats/multiaddr-matcher': 1.6.0
       any-signal: 4.1.1
       it-protobuf-stream: 1.1.5
       it-stream-types: 2.0.2
@@ -9767,7 +9793,7 @@ snapshots:
       '@libp2p/interface-internal': 2.0.10
       '@libp2p/utils': 6.1.3
       '@multiformats/multiaddr': 12.3.1
-      '@multiformats/multiaddr-matcher': 1.5.1
+      '@multiformats/multiaddr-matcher': 1.6.0
       delay: 6.0.0
       it-protobuf-stream: 1.1.5
       protons-runtime: 5.5.0
@@ -9782,7 +9808,7 @@ snapshots:
       '@libp2p/peer-record': 8.0.10
       '@libp2p/utils': 6.1.3
       '@multiformats/multiaddr': 12.3.1
-      '@multiformats/multiaddr-matcher': 1.5.1
+      '@multiformats/multiaddr-matcher': 1.6.0
       it-drain: 3.0.7
       it-parallel: 3.0.8
       it-protobuf-stream: 1.1.5
@@ -10124,7 +10150,7 @@ snapshots:
       '@libp2p/interface': 2.2.0
       '@libp2p/utils': 6.1.3
       '@multiformats/multiaddr': 12.3.1
-      '@multiformats/multiaddr-matcher': 1.5.1
+      '@multiformats/multiaddr-matcher': 1.6.0
       '@multiformats/multiaddr-to-uri': 10.1.2
       '@types/ws': 8.5.13
       it-ws: 6.1.5(bufferutil@4.0.8)
@@ -10144,7 +10170,7 @@ snapshots:
       '@libp2p/peer-id': 5.0.7
       '@libp2p/utils': 6.1.3
       '@multiformats/multiaddr': 12.3.1
-      '@multiformats/multiaddr-matcher': 1.5.1
+      '@multiformats/multiaddr-matcher': 1.6.0
       it-stream-types: 2.0.2
       multiformats: 13.3.1
       progress-events: 1.0.1
@@ -10152,24 +10178,24 @@ snapshots:
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
 
-  '@localfirst/auth@5.6.0':
+  '@localfirst/auth@6.0.0':
     dependencies:
       '@herbcaudill/eventemitter42': 0.3.3
-      '@localfirst/crdx': 5.6.0
-      '@localfirst/crypto': 5.6.0
-      '@localfirst/shared': 5.6.0
+      '@localfirst/crdx': 6.0.0
+      '@localfirst/crypto': 6.0.0
+      '@localfirst/shared': 6.0.0
       '@paralleldrive/cuid2': 2.2.2
       lodash-es: 4.17.21
       msgpackr: 1.11.2
-      xstate: 5.18.2
+      xstate: 5.19.0
     transitivePeerDependencies:
       - supports-color
 
-  '@localfirst/crdx@5.6.0':
+  '@localfirst/crdx@6.0.0':
     dependencies:
       '@herbcaudill/eventemitter42': 0.3.3
-      '@localfirst/crypto': 5.6.0
-      '@localfirst/shared': 5.6.0
+      '@localfirst/crypto': 6.0.0
+      '@localfirst/shared': 6.0.0
       '@paralleldrive/cuid2': 2.2.2
       '@types/lodash-es': 4.17.12
       lodash-es: 4.17.21
@@ -10177,9 +10203,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@localfirst/crypto@5.6.0':
+  '@localfirst/crypto@6.0.0':
     dependencies:
-      '@localfirst/shared': 5.6.0
+      '@localfirst/shared': 6.0.0
       '@types/lodash-es': 4.17.12
       bs58: 5.0.0
       libsodium-wrappers-sumo: 0.7.15
@@ -10188,7 +10214,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@localfirst/shared@5.6.0':
+  '@localfirst/shared@6.0.0':
     dependencies:
       '@herbcaudill/eventemitter42': 0.3.3
       cd: 0.3.3
@@ -10231,6 +10257,12 @@ snapshots:
       '@multiformats/multiaddr': 12.3.1
 
   '@multiformats/multiaddr-matcher@1.5.1':
+    dependencies:
+      '@chainsafe/is-ip': 2.0.2
+      '@multiformats/multiaddr': 12.3.1
+      multiformats: 13.3.1
+
+  '@multiformats/multiaddr-matcher@1.6.0':
     dependencies:
       '@chainsafe/is-ip': 2.0.2
       '@multiformats/multiaddr': 12.3.1
@@ -11412,6 +11444,8 @@ snapshots:
     dependencies:
       event-target-shim: 5.0.1
 
+  abort-error@1.0.0: {}
+
   abortable-iterator@5.1.0:
     dependencies:
       get-iterator: 2.0.1
@@ -11863,6 +11897,24 @@ snapshots:
       it-filter: 3.1.1
       it-merge: 3.0.5
       it-pushable: 3.2.3
+      multiformats: 13.3.1
+
+  blockstore-fs@2.0.2:
+    dependencies:
+      interface-blockstore: 5.3.1
+      interface-store: 6.0.2
+      it-glob: 3.0.1
+      it-map: 3.1.1
+      it-parallel-batch: 3.0.6
+      multiformats: 13.3.1
+      steno: 4.0.2
+
+  blockstore-idb@2.0.1:
+    dependencies:
+      blockstore-core: 5.0.2
+      idb: 8.0.0
+      interface-blockstore: 5.3.1
+      interface-store: 6.0.2
       multiformats: 13.3.1
 
   blockstore-level@2.0.1:
@@ -12543,6 +12595,25 @@ snapshots:
       it-sort: 3.0.6
       it-take: 3.0.6
 
+  datastore-fs@10.0.2:
+    dependencies:
+      datastore-core: 10.0.2
+      interface-datastore: 8.3.1
+      interface-store: 6.0.2
+      it-glob: 3.0.1
+      it-map: 3.1.1
+      it-parallel-batch: 3.0.6
+      steno: 4.0.2
+
+  datastore-idb@3.0.1:
+    dependencies:
+      datastore-core: 10.0.2
+      idb: 8.0.0
+      interface-datastore: 8.3.1
+      interface-store: 6.0.2
+      it-filter: 3.1.1
+      it-sort: 3.0.6
+
   date-fns@1.30.1: {}
 
   dayjs@1.11.13: {}
@@ -12815,10 +12886,10 @@ snapshots:
       graceful-fs: 4.2.11
       tapable: 2.2.1
 
-  ennikkai@2.3.2(@constl/ipa@1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))):
+  ennikkai@2.3.2(@constl/ipa@1.4.1(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))):
     dependencies:
-      '@constl/ipa': 1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
-      '@lassi-js/kili': 0.3.16(@constl/ipa@1.3.5(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0)))
+      '@constl/ipa': 1.4.1(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
+      '@lassi-js/kili': 0.3.16(@constl/ipa@1.4.1(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0)))
       deepmerge: 4.3.1
       events: 3.3.0
 
@@ -14101,7 +14172,7 @@ snapshots:
       '@chainsafe/libp2p-noise': 16.0.0
       '@chainsafe/libp2p-yamux': 7.0.1
       '@helia/block-brokers': 4.0.1
-      '@helia/delegated-routing-v1-http-api-client': 4.1.2
+      '@helia/delegated-routing-v1-http-api-client': 4.2.0
       '@helia/interface': 5.0.0
       '@helia/routers': 2.1.0
       '@helia/utils': 1.0.1
@@ -14228,6 +14299,8 @@ snapshots:
       safer-buffer: 2.1.2
 
   idb-wrapper@1.7.2: {}
+
+  idb@8.0.0: {}
 
   ieee754@1.2.1: {}
 
@@ -17200,7 +17273,7 @@ snapshots:
 
   rxjs@7.8.1:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
     optional: true
 
   sade@1.8.1:
@@ -17540,6 +17613,8 @@ snapshots:
   statuses@2.0.1: {}
 
   stdin-discarder@0.2.2: {}
+
+  steno@4.0.2: {}
 
   stop-iteration-iterator@1.0.0:
     dependencies:
@@ -17895,9 +17970,6 @@ snapshots:
 
   tslib@1.14.1: {}
 
-  tslib@2.6.3:
-    optional: true
-
   tslib@2.8.1: {}
 
   tsutils-etc@1.4.2(tsutils@3.21.0(typescript@5.6.3))(typescript@5.6.3):
@@ -18061,7 +18133,7 @@ snapshots:
 
   uint8arrays@5.1.0:
     dependencies:
-      multiformats: 13.1.3
+      multiformats: 13.3.1
 
   unbox-primitive@1.0.2:
     dependencies:
@@ -18342,7 +18414,7 @@ snapshots:
 
   xmlbuilder@11.0.1: {}
 
-  xstate@5.18.2: {}
+  xstate@5.19.0: {}
 
   xtend@2.0.6:
     dependencies:
