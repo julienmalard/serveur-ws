@@ -185,9 +185,11 @@ yargs(hideBin(process.argv))
     },
   )
   .demandCommand()
+  .scriptName("constl")
   .help("aide", "Obtenir de l'aide")
   .alias("aide", "a")
   .epilog(
     "Code source et rapportage d'erreurs: https://github.com/reseau-constellation/serveur-ws",
   )
   .parse();
+  
