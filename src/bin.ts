@@ -192,4 +192,3 @@ yargs(hideBin(process.argv))
     "Code source et rapportage d'erreurs: https://github.com/reseau-constellation/serveur-ws",
   )
   .parse();
-  
