@@ -4,7 +4,12 @@ import type TypedEmitter from "typed-emitter";
 import express, { type Response } from "express";
 import { WebSocketServer } from "ws";
 import trouverUnPort from "find-free-port";
-import { generateMnemonic, mnemonicToEntropy, validateMnemonic, wordlists } from "bip39";
+import {
+  generateMnemonic,
+  mnemonicToEntropy,
+  validateMnemonic,
+  wordlists,
+} from "bip39";
 
 import { Constellation, client, mandataire } from "@constl/ipa";
 
@@ -27,9 +32,15 @@ type RequêteUnique = {
   codeSecret: string;
 };
 
-const validerCode = ({code, entropieBonCode}: {code: string, entropieBonCode: string}): boolean => {
+const validerCode = ({
+  code,
+  entropieBonCode,
+}: {
+  code: string;
+  entropieBonCode: string;
+}): boolean => {
   return mnemonicToEntropy(code, wordlists.french) === entropieBonCode;
-}
+};
 
 const décoderRequêteAuthentification = ({
   requête,
@@ -37,7 +48,9 @@ const décoderRequêteAuthentification = ({
   requête: IncomingMessage;
 }): RequêteAuthentification | false => {
   if (!requête.url) return false;
-  const code = new URL(requête.url, 'http://localhost').searchParams.get("code");
+  const code = new URL(requête.url, "http://localhost").searchParams.get(
+    "code",
+  );
 
   if (typeof code !== "string") return false;
 
@@ -69,12 +82,18 @@ const authentifier = ({
   if (!infoRequête) return { authentifié: false };
 
   if (infoRequête.type === "publique") {
-    const authentifié = validerCode({code: infoRequête.codeSecret, entropieBonCode: entropieCodeCommun});
+    const authentifié = validerCode({
+      code: infoRequête.codeSecret,
+      entropieBonCode: entropieCodeCommun,
+    });
     return { authentifié };
   } else {
-    if (!entropiesCodesUniques[infoRequête.idRequête]) return { authentifié: false };  // Code déjà utilisé
-    const authentifié =
-      validerCode({code: infoRequête.codeSecret, entropieBonCode: entropiesCodesUniques[infoRequête.idRequête]});
+    if (!entropiesCodesUniques[infoRequête.idRequête])
+      return { authentifié: false }; // Code déjà utilisé
+    const authentifié = validerCode({
+      code: infoRequête.codeSecret,
+      entropieBonCode: entropiesCodesUniques[infoRequête.idRequête],
+    });
     if (authentifié) delete entropiesCodesUniques[infoRequête.idRequête];
     return {
       authentifié,
@@ -162,8 +181,10 @@ export const lancerServeur = async ({
   };
 
   const révoquerAccès = (id: string) => {
-    const connexion = [...serveurWs.clients].find(c => objIdMap.get(c) === id);
-    if (!connexion) throw 'Aucune connexion correspondant à la requête : ' + id;
+    const connexion = [...serveurWs.clients].find(
+      (c) => objIdMap.get(c) === id,
+    );
+    if (!connexion) throw "Aucune connexion correspondant à la requête : " + id;
     connexion.close();
   };
 

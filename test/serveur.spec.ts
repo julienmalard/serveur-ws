@@ -316,15 +316,18 @@ describe("Fonctionalités serveurs", function () {
               (x) => !!x.includes("S'il te plaît..."),
             );
             approuverRequête?.("S'il te plaît...");
-            
+
             ({ codeSecret: codeSecretUnique } = await nouvelleDemande);
-            
+
             const requêtes = await attendreRequêtes.attendreQue(
               (x) => !x.includes("S'il te plaît..."),
             );
             expect(requêtes).to.be.empty();
-            
-            const { fermerClient } = await lancerClient({ port, codeSecret: codeSecretUnique });
+
+            const { fermerClient } = await lancerClient({
+              port,
+              codeSecret: codeSecretUnique,
+            });
             fsOublier.push(fermerClient);
           });
 
@@ -336,8 +339,10 @@ describe("Fonctionalités serveurs", function () {
           });
 
           it("Mot de passe unique non réutilisable", async () => {
-            await expect(lancerClient({ port, codeSecret: codeSecretUnique })).to.be.rejectedWith("401");
-          })
+            await expect(
+              lancerClient({ port, codeSecret: codeSecretUnique }),
+            ).to.be.rejectedWith("401");
+          });
         });
       });
 
