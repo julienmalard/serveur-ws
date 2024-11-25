@@ -4,7 +4,7 @@ import type TypedEmitter from "typed-emitter";
 import express, { type Response } from "express";
 import { WebSocketServer } from "ws";
 import trouverUnPort from "find-free-port";
-import { generateMnemonic, wordlists } from "bip39";
+import { generateMnemonic, mnemonicToEntropy, validateMnemonic, wordlists } from "bip39";
 
 import { Constellation, client, mandataire } from "@constl/ipa";
 
@@ -15,17 +15,21 @@ type MessageÉvénementRequête = {
   changement: (requêtes: string[]) => void;
 };
 
-type RequêteAuthentification = RequêtePrivée | RequêtePublique;
+type RequêteAuthentification = RequêteUnique | RequêtePublique;
 type RequêtePublique = {
   type: "publique";
   codeSecret: string;
 };
 
-type RequêtePrivée = {
-  type: "privée";
+type RequêteUnique = {
+  type: "unique";
   idRequête: string;
   codeSecret: string;
 };
+
+const validerCode = ({code, entropieBonCode}: {code: string, entropieBonCode: string}): boolean => {
+  return mnemonicToEntropy(code, wordlists.french) === entropieBonCode;
+}
 
 const décoderRequêteAuthentification = ({
   requête,
@@ -33,39 +37,45 @@ const décoderRequêteAuthentification = ({
   requête: IncomingMessage;
 }): RequêteAuthentification | false => {
   if (!requête.url) return false;
-  const code = new URL(requête.url).searchParams.get("demande");
+  const code = new URL(requête.url, 'http://localhost').searchParams.get("code");
+
   if (typeof code !== "string") return false;
 
-  const composantesCode = decodeURI(code);
-  if (composantesCode.includes(":")) {
-    const [codeSecret, idRequête] = composantesCode.split(":");
-    return { type: "privée", codeSecret, idRequête };
+  const texteCode = decodeURI(code);
+
+  if (texteCode.includes(":")) {
+    const [codeSecret, idRequête] = texteCode.split(":");
+    if (!validateMnemonic(codeSecret, wordlists.french)) return false;
+    return { type: "unique", codeSecret, idRequête };
   } else {
+    if (!validateMnemonic(texteCode, wordlists.french)) return false;
     return {
       type: "publique",
-      codeSecret: composantesCode,
+      codeSecret: texteCode,
     };
   }
 };
 
 const authentifier = ({
   requête,
-  motDePasseCommun,
-  motsDePasseUniques,
+  entropieCodeCommun,
+  entropiesCodesUniques,
 }: {
   requête: IncomingMessage;
-  motDePasseCommun: string;
-  motsDePasseUniques: { [id: string]: string };
+  entropieCodeCommun: string;
+  entropiesCodesUniques: { [id: string]: string };
 }): { authentifié: boolean; id?: string } => {
   const infoRequête = décoderRequêteAuthentification({ requête });
   if (!infoRequête) return { authentifié: false };
+
   if (infoRequête.type === "publique") {
-    const authentifié = infoRequête.codeSecret === motDePasseCommun;
+    const authentifié = validerCode({code: infoRequête.codeSecret, entropieBonCode: entropieCodeCommun});
     return { authentifié };
   } else {
+    if (!entropiesCodesUniques[infoRequête.idRequête]) return { authentifié: false };  // Code déjà utilisé
     const authentifié =
-      infoRequête.codeSecret === motsDePasseUniques[infoRequête.idRequête];
-    if (authentifié) delete motsDePasseUniques[infoRequête.idRequête];
+      validerCode({code: infoRequête.codeSecret, entropieBonCode: entropiesCodesUniques[infoRequête.idRequête]});
+    if (authentifié) delete entropiesCodesUniques[infoRequête.idRequête];
     return {
       authentifié,
       id: infoRequête.idRequête,
@@ -87,6 +97,7 @@ export const lancerServeur = async ({
   suivreConnexions: (f: (x: string[]) => void) => () => void;
   approuverRequête: (id: string) => void;
   refuserRequête: (id: string) => void;
+  révoquerAccès: (id: string) => void;
   ipa: Constellation;
 }> => {
   port = port || (await trouverUnPort(5000))[0];
@@ -100,6 +111,8 @@ export const lancerServeur = async ({
     );
 
   const codeSecret = generateMnemonic(undefined, undefined, wordlists.french);
+  const entropieCodeCommun = mnemonicToEntropy(codeSecret, wordlists.french);
+
   const codesUniques: { [id: string]: string } = {};
 
   const app = express();
@@ -133,8 +146,10 @@ export const lancerServeur = async ({
       undefined,
       wordlists.french,
     );
-    codesUniques[id] = codeSecretUnique;
+    codesUniques[id] = mnemonicToEntropy(codeSecretUnique, wordlists.french);
+
     requête?.rép.status(200).send(codeSecretUnique + ":" + id);
+
     requêtes = requêtes.filter((r) => r.id !== id);
     requêtesChangées();
   };
@@ -144,6 +159,12 @@ export const lancerServeur = async ({
     requête?.rép.status(401).send("Accès refusé");
     requêtes = requêtes.filter((r) => r.id !== id);
     requêtesChangées();
+  };
+
+  const révoquerAccès = (id: string) => {
+    const connexion = [...serveurWs.clients].find(c => objIdMap.get(c) === id);
+    if (!connexion) throw 'Aucune connexion correspondant à la requête : ' + id;
+    connexion.close();
   };
 
   const suivreConnexions = (f: (r: string[]) => void): (() => void) => {
@@ -174,8 +195,8 @@ export const lancerServeur = async ({
   serveur.on("upgrade", (request, socket, head) => {
     const { authentifié, id } = authentifier({
       requête: request,
-      motDePasseCommun: codeSecret,
-      motsDePasseUniques: codesUniques,
+      entropieCodeCommun,
+      entropiesCodesUniques: codesUniques,
     });
 
     if (authentifié) {
@@ -209,6 +230,7 @@ export const lancerServeur = async ({
     suivreConnexions,
     approuverRequête,
     refuserRequête,
+    révoquerAccès,
     ipa,
   };
 };

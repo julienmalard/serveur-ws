@@ -272,6 +272,7 @@ describe("Fonctionalités serveurs", function () {
           let demande: Promise<{
             codeSecret: string;
           }>;
+          let codeSecretUnique: string;
           const attendreRequêtes = new attente.AttendreRésultat<string[]>();
           const attendreConnexions = new attente.AttendreRésultat<string[]>();
           const fsOublier: (() => void)[] = [];
@@ -315,15 +316,15 @@ describe("Fonctionalités serveurs", function () {
               (x) => !!x.includes("S'il te plaît..."),
             );
             approuverRequête?.("S'il te plaît...");
-
-            const { codeSecret } = await nouvelleDemande;
-
+            
+            ({ codeSecret: codeSecretUnique } = await nouvelleDemande);
+            
             const requêtes = await attendreRequêtes.attendreQue(
               (x) => !x.includes("S'il te plaît..."),
             );
             expect(requêtes).to.be.empty();
-
-            const { fermerClient } = await lancerClient({ port, codeSecret });
+            
+            const { fermerClient } = await lancerClient({ port, codeSecret: codeSecretUnique });
             fsOublier.push(fermerClient);
           });
 
@@ -333,6 +334,10 @@ describe("Fonctionalités serveurs", function () {
             );
             expect(val).to.contain("S'il te plaît...");
           });
+
+          it("Mot de passe unique non réutilisable", async () => {
+            await expect(lancerClient({ port, codeSecret: codeSecretUnique })).to.be.rejectedWith("401");
+          })
         });
       });
 
