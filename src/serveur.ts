@@ -3,7 +3,6 @@ import type TypedEmitter from "typed-emitter";
 
 import express, { type Response } from "express";
 import { WebSocketServer } from "ws";
-import { parse } from "url";
 import trouverUnPort from "find-free-port";
 import { generateMnemonic, wordlists } from "bip39";
 
@@ -16,22 +15,62 @@ type MessageÉvénementRequête = {
   changement: (requêtes: string[]) => void;
 };
 
-const authentifier = (
-  requête: IncomingMessage,
-  bonMotDePasse: string,
-): { authentifié: boolean; id?: string } => {
-  if (!requête.url) return { authentifié: false };
-  const { code } = parse(requête.url, true).query;
-  if (typeof code !== "string") return { authentifié: false };
+type RequêteAuthentification = RequêtePrivée | RequêtePublique;
+type RequêtePublique = {
+  type: "publique";
+  codeSecret: string;
+};
+
+type RequêtePrivée = {
+  type: "privée";
+  idRequête: string;
+  codeSecret: string;
+};
+
+const décoderRequêteAuthentification = ({
+  requête,
+}: {
+  requête: IncomingMessage;
+}): RequêteAuthentification | false => {
+  if (!requête.url) return false;
+  const code = new URL(requête.url).searchParams.get("demande");
+  if (typeof code !== "string") return false;
+
   const composantesCode = decodeURI(code);
-  const motDePasse = composantesCode.includes(":")
-    ? composantesCode.split(":")[0]
-    : composantesCode;
-  const authentifié = motDePasse === bonMotDePasse;
-  const id = composantesCode.includes(":")
-    ? composantesCode.split(":")[1]
-    : undefined;
-  return { authentifié, id };
+  if (composantesCode.includes(":")) {
+    const [codeSecret, idRequête] = composantesCode.split(":");
+    return { type: "privée", codeSecret, idRequête };
+  } else {
+    return {
+      type: "publique",
+      codeSecret: composantesCode,
+    };
+  }
+};
+
+const authentifier = ({
+  requête,
+  motDePasseCommun,
+  motsDePasseUniques,
+}: {
+  requête: IncomingMessage;
+  motDePasseCommun: string;
+  motsDePasseUniques: { [id: string]: string };
+}): { authentifié: boolean; id?: string } => {
+  const infoRequête = décoderRequêteAuthentification({ requête });
+  if (!infoRequête) return { authentifié: false };
+  if (infoRequête.type === "publique") {
+    const authentifié = infoRequête.codeSecret === motDePasseCommun;
+    return { authentifié };
+  } else {
+    const authentifié =
+      infoRequête.codeSecret === motsDePasseUniques[infoRequête.idRequête];
+    if (authentifié) delete motsDePasseUniques[infoRequête.idRequête];
+    return {
+      authentifié,
+      id: infoRequête.idRequête,
+    };
+  }
 };
 
 export const lancerServeur = async ({
@@ -61,6 +100,7 @@ export const lancerServeur = async ({
     );
 
   const codeSecret = generateMnemonic(undefined, undefined, wordlists.french);
+  const codesUniques: { [id: string]: string } = {};
 
   const app = express();
   // https://masteringjs.io/tutorials/express/websockets
@@ -88,7 +128,13 @@ export const lancerServeur = async ({
 
   const approuverRequête = (id: string) => {
     const requête = requêtes.find((r) => r.id === id);
-    requête?.rép.status(200).send(codeSecret + ":" + id);
+    const codeSecretUnique = generateMnemonic(
+      undefined,
+      undefined,
+      wordlists.french,
+    );
+    codesUniques[id] = codeSecretUnique;
+    requête?.rép.status(200).send(codeSecretUnique + ":" + id);
     requêtes = requêtes.filter((r) => r.id !== id);
     requêtesChangées();
   };
@@ -126,7 +172,11 @@ export const lancerServeur = async ({
   const objIdMap = new WeakMap();
 
   serveur.on("upgrade", (request, socket, head) => {
-    const { authentifié, id } = authentifier(request, codeSecret);
+    const { authentifié, id } = authentifier({
+      requête: request,
+      motDePasseCommun: codeSecret,
+      motsDePasseUniques: codesUniques,
+    });
 
     if (authentifié) {
       serveurWs.handleUpgrade(request, socket, head, (socket) => {
