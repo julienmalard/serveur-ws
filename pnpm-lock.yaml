@@ -58,8 +58,8 @@ importers:
         specifier: 3.0.3
         version: 3.0.3
       '@constl/utils-tests':
-        specifier: 1.6.6
-        version: 1.6.6(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
+        specifier: 1.6.7
+        version: 1.6.7(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))
       '@eslint/js':
         specifier: ^9.15.0
         version: 9.15.0
@@ -916,8 +916,8 @@ packages:
     resolution: {integrity: sha512-U9GCw5o9ZBJHBy5XK5Rt0rEn30ceSkhhQr6UTylVAF4hJ9ChlNsPKYVdk6KHk+opcwxcdS01RMczHIwEoRzRGg==}
     engines: {node: '>=20'}
 
-  '@constl/utils-tests@1.6.6':
-    resolution: {integrity: sha512-3d+tzJC5VuiCuulDs7vQFU7qiMaGshjWpvVkYwVAXEerFBBrKs/jGcNuv2wEOmdR9q4DrLgtbLcb43gDCtltZA==}
+  '@constl/utils-tests@1.6.7':
+    resolution: {integrity: sha512-DzkciiA+vOhyr92VlNHb2dqVj5Eqi0qaExfVuE7JMiDk5CmowtgQOBTkVyJ11U3wJOh+mfdmEIlJtwdp8nbtNA==}
     engines: {node: '>=20'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -9209,7 +9209,7 @@ snapshots:
       uint8arrays: 5.1.0
       wherearewe: 2.0.1
 
-  '@constl/utils-tests@1.6.6(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))':
+  '@constl/utils-tests@1.6.7(bufferutil@4.0.8)(react-native@0.74.3(@babel/core@7.26.0)(@babel/preset-env@7.24.8(@babel/core@7.26.0))(bufferutil@4.0.8)(react@18.2.0))':
     dependencies:
       '@helia/block-brokers': 4.0.2
       '@libp2p/peer-id': 5.0.8
